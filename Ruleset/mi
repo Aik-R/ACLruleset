@@ -1,4 +1,4 @@
-DOMAIN#此处主要屏蔽小米云扫描组件
+#此处主要屏蔽小米云扫描组件
 DOMAIN,log.avlyun.sec.intl.miui.com
 DOMAIN,update.avlyun.sec.miui.com
 DOMAIN,ixav-cse.avlyun.com
