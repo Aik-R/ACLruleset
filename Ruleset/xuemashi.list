@@ -1,6 +1,6 @@
 DOMAIN-KEYWORD, .game-gakuen-idolmaster.
-DOMAIN, object.asset.game-gakuen-idolmaster.jp
-DOMAIN, api.game-gakuen-idolmaster.jp
-DOMAIN, stat.game-gakuen-idolmaster.jp
-DOMAIN, api.asset.game-gakuen-idolmaster.jp
+DOMAIN-SUFFIX, object.asset.game-gakuen-idolmaster.jp
+DOMAIN-SUFFIX, api.game-gakuen-idolmaster.jp
+DOMAIN-SUFFIX, stat.game-gakuen-idolmaster.jp
+DOMAIN-SUFFIX, api.asset.game-gakuen-idolmaster.jp
 
