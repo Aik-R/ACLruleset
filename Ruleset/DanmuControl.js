@@ -2,7 +2,7 @@
 
     const SELECTOR = {
         dmTypeScroll: ".bpx-player-block-filter-type bpx-player-block-typeScroll",
-        dmTypeBottom: ".bpx-player-block-filter-type bpx-player-block-typeTopBottom",
+        dmTypeTopBottom: ".bpx-player-block-filter-type bpx-player-block-typeTopBottom",
         dmTypeColor: ".bpx-player-block-filter-type bpx-player-block-typeColor",
         dmTypeSpecial: ".bpx-player-block-filter-type bpx-player-block-typeSpecial",
     };
@@ -10,7 +10,7 @@
         e.danmuBottom = {
             displayName: "固定弹幕",
             run: async () => {
-                danmuType(SELECTOR.typeTopBottom);
+                danmuType(SELECTOR.dmTypeTopBottom);
             }
         };
         
@@ -48,11 +48,11 @@
     }));
 
     t("keymap.presets",((e,t)=>{
-        e.typeTopBottom = 'b';
-        e.danmuScroll = 's';
-        e.danmuColor = 'c';
+        e.dmTypeTopBottom = 'q';
+        e.danmuScroll = 'a';
+        e.danmuColor = 'z';
         e.danmuSpecial = ''; // No shortcut assigned
-        t.HTML5Player.typeTopBottom = '';
+        t.HTML5Player.dmTypeTopBottom = '';
         t.HTML5Player.danmuScroll = '';
         t.HTML5Player.danmuColor = '';
         t.HTML5Player.danmuSpecial = '';
