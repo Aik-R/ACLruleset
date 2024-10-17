@@ -12,7 +12,6 @@
                 danmuType(SELECTOR.typeColor);
             }
         };
-
         function danmuType(selector) {
             q(selector).click();
             const text = q(`${selector} .bpx-player-block-filter-label`).text();
