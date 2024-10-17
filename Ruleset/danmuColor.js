@@ -1,7 +1,7 @@
 !function(e,t){"object"==typeof exports&&"object"==typeof module?module.exports=t():"function"==typeof define&&define.amd?define([],t):"object"==typeof exports?exports["utils/keymap-danmu-color"]=t():e["utils/keymap-danmu-color"]=t()}(globalThis,(()=>(()=>{"use strict";var e={d:(t,a)=>{for(var o in a)e.o(a,o)&&!e.o(t,o)&&Object.defineProperty(t,o,{enumerable:!0,get:a[o]})},o:(e,t)=>Object.prototype.hasOwnProperty.call(e,t)},t={};e.d(t,{plugin:()=>a});const a={name:"keymap.actions.danmuColor",displayName:"快捷键扩展 - 彩色弹幕",description:'在快捷键的动作列表里添加一个 "彩色弹幕".',setup:e=>{let{addData:t}=e;
 
     const SELECTOR = {
-        dmTypeColor: ".bpx-player-block-filter-type bpx-player-block-typeColor"
+        typeColor: ".bpx-player-block-filter-type bpx-player-block-typeColor"
     };
 
     t("keymap.actions",(e=>{
@@ -26,7 +26,7 @@
     }));
 
     t("keymap.presets",((e,t)=>{
-        e.danmuColor = 'c';
+        e.danmuColor = 'z';
         t.HTML5Player.danmuColor = '';
     }));
 
