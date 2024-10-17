@@ -58,4 +58,4 @@
         t.HTML5Player.danmuSpecial = '';
     }));
 
-},commitHash:"9e5159f7d2ef32b3b4c04e6d569e099090574367",coreVersion:"2.9.3"};return t=t.plugin})()));
+}};return t=t.plugin})()));
