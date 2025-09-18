@@ -1,4 +1,4 @@
-mixed-port: 7890 #  下述配置均可以自定义
+mixed-port: 7890
 allow-lan: false
 mode: rule
 log-level: warning
@@ -13,21 +13,6 @@ cfw-bypass:
   - 127.*
   - 10.*
   - 172.16.*
-  - 172.17.*
-  - 172.18.*
-  - 172.19.*
-  - 172.20.*
-  - 172.21.*
-  - 172.22.*
-  - 172.23.*
-  - 172.24.*
-  - 172.25.*
-  - 172.26.*
-  - 172.27.*
-  - 172.28.*
-  - 172.29.*
-  - 172.30.*
-  - 172.31.*
   - 192.168.*
   - <local>
 hosts:
@@ -36,192 +21,293 @@ hosts:
 dns:
   enable: true
   listen: 127.0.0.1:5335
-  prefer-h3: true
-  default-nameserver: [180.184.1.1, 119.29.29.29, 223.5.5.5]
-  proxy-server-nameserver: [https://dns.alidns.com/dns-query, https://doh.pub/dns-query]
+  respect-rules: true
+  default-nameserver: [119.29.29.29, 223.5.5.5]
+  proxy-server-nameserver: [https://223.5.5.5/dns-query, https://doh.pub/dns-query]
   use-hosts: true
   use-system-hosts: true
-  enhanced-mode: fake-ip
+  enhanced-mode: redir-host
   fake-ip-filter: ["*.market.xiaomi.com","*.n.n.srv.nintendo.net", +.stun.playstation.net, xbox.*.*.microsoft.com, "*.msftncsi.com", "*.msftconnecttest.com", WORKGROUP, "*.lan", stun.*.*.*, stun.*.*, time.windows.com, time.nist.gov, time.apple.com, time.asia.apple.com, "*.ntp.org.cn", "*.openwrt.pool.ntp.org", time1.cloud.tencent.com, time.ustc.edu.cn, pool.ntp.org, ntp.ubuntu.com, "*.*.xboxlive.com", speedtest.cros.wr.pvp.net, stun.services.mozilla1.com, ntp.nasa.gov]
-  nameserver: [https://dns.alidns.com/dns-query, https://doh.pub/dns-query]
+  nameserver: [https://doh.pub/dns-query, https://223.5.5.5/dns-query]
   nameserver-policy:
-    "geosite:cn,apple,category-games@cn,private":
+    "geosite:bytedance":
+        - 180.184.1.1
+        - 180.184.2.2
+    "geosite:cn,apple,category-games@cn":
         - 119.29.29.29
         - 223.6.6.6
+        - system
+    "geosite:private":
+        - system
+  fallback:
+    - https://8.8.8.8/dns-query
+    - https://1.1.1.1/dns-query
+  fallback-filter:
+    geosite:
+      - category-porn
+      - category-forums
+      - category-cryptocurrency
+    ipcidr:
+      - 240.0.0.0/4
+      - 116.89.243.0/24
+
 proxies: # proxies - 1p 为节点信息区块, proxies - 3p 为节点列表区块 proxies - 3p - auto 为节点自动列表区块, 单独占一行
 %proxies-1p%
 
 proxy-groups:
   - name: 🚀 节点选择
     type: select
-    proxies: [🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 狮城节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, SP 特殊节点, 🚀 手动切换, DIRECT]
+    proxies: 
+      - 🇭🇰 香港节点
+      - 🇨🇳 台湾节点
+      - 🇸🇬 狮城节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      - 🇰🇷 韩国节点
+      - 🌍 其他地区
+      - 🚀 手动切换
+      - DIRECT
+      
   - name: 🚀 手动切换
     type: select
-    # selector: .*
-    proxies: [%all%]
+    include-all: true
+    exclude-type: direct
+    proxies:
+      - DIRECT
+      
+  # 地区节点组 - 使用正则表达式自动筛选
+  - name: 🇭🇰 香港节点
+    type: url-test
+    include-all: true
+    exclude-type: direct
+    filter: "(?i)港|hk|hong kong|香港"
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    
+  - name: 🇯🇵 日本节点
+    type: url-test
+    include-all: true
+    exclude-type: direct
+    filter: "(?i)日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|jp|japan"
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    
+  - name: 🇺🇲 美国节点
+    type: url-test
+    include-all: true
+    exclude-type: direct
+    filter: "(?i)美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|us|united states"
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    
+  - name: 🇸🇬 狮城节点
+    type: url-test
+    include-all: true
+    exclude-type: direct
+    filter: "(?i)新加坡|坡|狮城|sg|singapore"
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    
+  - name: 🇨🇳 台湾节点
+    type: url-test
+    include-all: true
+    exclude-type: direct
+    filter: "(?i)台|新北|彰化|tw|taiwan"
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    
+  - name: 🇰🇷 韩国节点
+    type: url-test
+    include-all: true
+    exclude-type: direct
+    filter: "(?i)kr|korea|kor|首尔|韩|韩国"
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    
+  - name: 🌍 其他地区
+    type: select
+    include-all: true
+    exclude-type: direct
+    filter: "^(?!.*(🇮🇱|🇮🇸|🇮🇩|🇹🇷|🇵🇰|🇧🇷|🇩🇪|🇮🇹|🇳🇴|🇫🇷|🇵🇱|🇹🇭|🇦🇺|🇨🇭|🇬🇧|🇳🇱|🇵🇭|🇦🇷|🇦🇪|🇲🇾|🇻🇳|🇱🇺|🇺🇦|🇷🇺|🇨🇦|🇿🇦|🇮🇳|🇪🇬|🇲🇽|🇲🇩|🇨🇱|🇰🇵|🇮🇪|🇸🇪|🇪🇸|🇳🇬|🇻🇦|南极|🇰🇵|🇰🇭|🇲🇲|🇫🇮)).*"
+    
+  # 应用分组
   - name: 📢 谷歌
     type: select
-    proxies: [🚀 节点选择, DIRECT, 🇸🇬 狮城节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, SP 特殊节点, 🚀 手动切换]
+    proxies: [🚀 节点选择, DIRECT, 🇸🇬 狮城节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🌍 其他地区, 🚀 手动切换]
+    
   - name: 📲 电报消息
     type: select
-    proxies: [🚀 节点选择, 🇸🇬 狮城节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, SP 特殊节点, 🚀 手动切换, DIRECT]
+    proxies: [🚀 节点选择, 🇸🇬 狮城节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🌍 其他地区, 🚀 手动切换, DIRECT]
+    
   - name: 📢 Gemini
     type: select
     proxies: [🚀 节点选择, 🇸🇬 狮城节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🚀 手动切换, DIRECT]
+    
   - name: 💬 OpenAi
     type: select
     proxies: [🚀 节点选择, 🇸🇬 狮城节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🚀 手动切换, DIRECT]
+    
   - name: 🎮 学马仕
     type: select
-    # selector: (日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan)
     proxies: [🚀 节点选择, 🚀 手动切换, DIRECT]
+    
   - name: 📲 Twitter
     type: select
-    proxies: [🚀 节点选择, 🇸🇬 狮城节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, SP 特殊节点, 🚀 手动切换, DIRECT]
+    proxies: [🚀 节点选择, 🇸🇬 狮城节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🌍 其他地区, 🚀 手动切换, DIRECT]
+    
   - name: 📲 Facebook
     type: select
-    proxies: [🚀 节点选择, 🇸🇬 狮城节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, SP 特殊节点, 🚀 手动切换, DIRECT]
+    proxies: [🚀 节点选择, 🇸🇬 狮城节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🌍 其他地区, 🚀 手动切换, DIRECT]
+    
   - name: 📲 Instagram
     type: select
-    proxies: [🚀 节点选择, 🇸🇬 狮城节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, SP 特殊节点, 🚀 手动切换, DIRECT]
+    proxies: [🚀 节点选择, 🇸🇬 狮城节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🌍 其他地区, 🚀 手动切换, DIRECT]
+    
   - name: 📲 Pixiv
     type: select
-    proxies: [🚀 节点选择, 🇸🇬 狮城节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, SP 特殊节点, 🚀 手动切换, DIRECT]
+    proxies: [🚀 节点选择, 🇸🇬 狮城节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🌍 其他地区, 🚀 手动切换, DIRECT]
+    
   - name: 📲 EH
     type: select
-    proxies: [🚀 节点选择, 🇸🇬 狮城节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, SP 特殊节点, 🚀 手动切换, DIRECT]
+    proxies: [🚀 节点选择, 🇸🇬 狮城节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🌍 其他地区, 🚀 手动切换, DIRECT]
+    
   - name: 📲 DMM
     type: select
-    # selector: (日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan)
     proxies: [🚀 节点选择, 🚀 手动切换, DIRECT]
+    
   - name: 📹 油管video
     type: select
-    proxies: [🚀 节点选择, 🇭🇰 香港节点, 🇸🇬 狮城节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, SP 特殊节点, 🚀 手动切换, DIRECT]
+    proxies: [🚀 节点选择, 🇭🇰 香港节点, 🇸🇬 狮城节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🌍 其他地区, 🚀 手动切换, DIRECT]
+    
   - name: 📹 油管music
     type: select
-    proxies: [🚀 节点选择, 🇭🇰 香港节点, 🇸🇬 狮城节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, SP 特殊节点, 🚀 手动切换, DIRECT]
+    proxies: [🚀 节点选择, 🇭🇰 香港节点, 🇸🇬 狮城节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🌍 其他地区, 🚀 手动切换, DIRECT]
+    
   - name: 📺 TikTok
     type: select
-    proxies: [🚀 节点选择, 🇭🇰 香港节点, 🇸🇬 狮城节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, SP 特殊节点, 🚀 手动切换, DIRECT]
+    proxies: [🚀 节点选择, 🇭🇰 香港节点, 🇸🇬 狮城节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🌍 其他地区, 🚀 手动切换, DIRECT]
+    
   - name: 🎥 奈飞视频
     type: select
-    proxies: [🚀 节点选择, 🇸🇬 狮城节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, SP 特殊节点, 🚀 手动切换, DIRECT]
+    proxies: [🚀 节点选择, 🇸🇬 狮城节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🌍 其他地区, 🚀 手动切换, DIRECT]
+    
   - name: 🎥 Amazon
     type: select
-    proxies: [🚀 节点选择, 🇸🇬 狮城节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, SP 特殊节点, 🚀 手动切换, DIRECT]
+    proxies: [🚀 节点选择, 🇸🇬 狮城节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🌍 其他地区, 🚀 手动切换, DIRECT]
+    
   - name: 🎥 Disney+
     type: select
-    # selector: (日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan)
-    proxies: [🚀 节点选择, 🇸🇬 狮城节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, SP 特殊节点, 🚀 手动切换, DIRECT]
+    proxies: [🚀 节点选择, 🇸🇬 狮城节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🌍 其他地区, 🚀 手动切换, DIRECT]
+    
   - name: 🎥 HBO_GO_HKG
     type: select
-    proxies: [🚀 节点选择, 🇸🇬 狮城节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, SP 特殊节点, 🚀 手动切换, DIRECT]
+    proxies: [🚀 节点选择, 🇸🇬 狮城节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🌍 其他地区, 🚀 手动切换, DIRECT]
+    
   - name: 📺 Spotify
     type: select
-    proxies: [🚀 节点选择, 🇸🇬 狮城节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, SP 特殊节点, 🚀 手动切换, DIRECT]
+    proxies: [🚀 节点选择, 🇸🇬 狮城节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🌍 其他地区, 🚀 手动切换, DIRECT]
+    
   - name: 📺 巴哈姆特
     type: select
     proxies: [🇨🇳 台湾节点, 🚀 节点选择, 🚀 手动切换, DIRECT]
+    
   - name: 📺 AbemaTV
     type: select
-    # selector: (日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan)
     proxies: [🚀 节点选择, 🚀 手动切换, DIRECT]
+    
   - name: 📺 Niconico
     type: select
-    # selector: (日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan)
     proxies: [🚀 节点选择, 🚀 手动切换, DIRECT]
+    
   - name: 📺 Emby
     type: select
-    proxies: [🚀 节点选择, 🇸🇬 狮城节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, SP 特殊节点, 🚀 手动切换, DIRECT]
+    proxies: [🚀 节点选择, 🇸🇬 狮城节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🌍 其他地区, 🚀 手动切换, DIRECT]
+    
   - name: 📺 哔哩哔哩
     type: select
     proxies: [🎯 全球直连, 🇨🇳 台湾节点, 🇭🇰 香港节点]
+    
   - name: 🌍 国外媒体
     type: select
-    proxies: [🚀 节点选择, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 狮城节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, SP 特殊节点, 🚀 手动切换, DIRECT]
-  - name: 🌏 国内媒体
+    proxies: [🚀 节点选择, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 狮城节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🌍 其他地区, 🚀 手动切换, DIRECT]
+    
+  - name: 🌍 国内媒体
     type: select
-    proxies: [DIRECT, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 狮城节点, 🇯🇵 日本节点, SP 特殊节点, 🚀 手动切换]
+    proxies: [DIRECT, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 狮城节点, 🇯🇵 日本节点, 🌍 其他地区, 🚀 手动切换]
+    
   - name: 📢 谷歌FCM
     type: select
-    proxies: [DIRECT, 🚀 节点选择, 🇺🇲 美国节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 狮城节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, SP 特殊节点, 🚀 手动切换]
+    proxies: [DIRECT, 🚀 节点选择, 🇺🇲 美国节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 狮城节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🌍 其他地区, 🚀 手动切换]
+    
   - name: 📢 谷歌🇨🇳Play下载
     type: select
-    proxies: [🚀 节点选择, DIRECT, 🇸🇬 狮城节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, SP 特殊节点, 🚀 手动切换]
+    proxies: [🚀 节点选择, DIRECT, 🇸🇬 狮城节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🌍 其他地区, 🚀 手动切换]
+    
   - name: 📢 谷歌🇨🇳Play服务
     type: select
-    proxies: [🚀 节点选择, DIRECT, 🇸🇬 狮城节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, SP 特殊节点, 🚀 手动切换]
+    proxies: [🚀 节点选择, DIRECT, 🇸🇬 狮城节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🌍 其他地区, 🚀 手动切换]
+    
   - name: 📢 谷歌🇨🇳
     type: select
-    proxies: [DIRECT, 🚀 节点选择, 🇺🇲 美国节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 狮城节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, SP 特殊节点, 🚀 手动切换]
-  - name: Ⓜ️ 微软云盘
+    proxies: [DIRECT, 🚀 节点选择, 🇺🇲 美国节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 狮城节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🌍 其他地区, 🚀 手动切换]
+    
+  - name: ☁️ 微软云盘
     type: select
-    proxies: [DIRECT, 🚀 节点选择, 🇺🇲 美国节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 狮城节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, SP 特殊节点, 🚀 手动切换]
-  - name: Ⓜ️ 微软服务
+    proxies: [DIRECT, 🚀 节点选择, 🇺🇲 美国节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 狮城节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🌍 其他地区, 🚀 手动切换]
+    
+  - name: ☁️ 微软服务
     type: select
-    proxies: [DIRECT, 🚀 节点选择, 🇺🇲 美国节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 狮城节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, SP 特殊节点, 🚀 手动切换]
+    proxies: [DIRECT, 🚀 节点选择, 🇺🇲 美国节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 狮城节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🌍 其他地区, 🚀 手动切换]
+    
   - name: 🍎 苹果服务
     type: select
-    proxies: [DIRECT, 🚀 节点选择, 🇺🇲 美国节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 狮城节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, SP 特殊节点, 🚀 手动切换]
+    proxies: [DIRECT, 🚀 节点选择, 🇺🇲 美国节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 狮城节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🌍 其他地区, 🚀 手动切换]
+    
   - name: 🎮 游戏平台
     type: select
-    proxies: [DIRECT, 🚀 节点选择, 🇺🇲 美国节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 狮城节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, SP 特殊节点, 🚀 手动切换]
+    proxies: [DIRECT, 🚀 节点选择, 🇺🇲 美国节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 狮城节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🌍 其他地区, 🚀 手动切换]
+    
   - name: 🎶 网易音乐
     type: select
-    # selector: (网易|音乐|解锁|Music|NetEase)
     proxies: [DIRECT, 🚀 节点选择]
+    
   - name: 🎯 全球直连
     type: select
     proxies: [DIRECT, 🚀 节点选择]
+    
   - name: 🛑 强力拦截
     type: select
     proxies: [REJECT, DIRECT]
+    
   - name: 🛑 广告拦截
     type: select
     proxies: [REJECT, DIRECT]
+    
   - name: 🍃 应用净化
     type: select
     proxies: [REJECT, DIRECT]
+    
   - name: 🆎 AdBlock
     type: select
     proxies: [REJECT, DIRECT]
+    
   - name: 🛡️ 隐私防护
     type: select
     proxies: [REJECT, DIRECT]
+    
   - name: 🛡️ miBlock
     type: select
     proxies: [REJECT, DIRECT]
+    
   - name: 🐟 漏网之鱼
     type: select
-    proxies: [🚀 节点选择, DIRECT, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 狮城节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, SP 特殊节点, 🚀 手动切换]
-  - name: 🇭🇰 香港节点
-    type: select
-    # selector: (港|HK|Hong Kong)
-    proxies: [%all%]
-  - name: 🇯🇵 日本节点
-    type: select
-    # selector: (日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan)
-    proxies: [%all%]
-  - name: 🇺🇲 美国节点
-    type: select
-    # selector: (美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States)
-    proxies: [%all%]
-  - name: 🇸🇬 狮城节点
-    type: select
-    # selector: (新加坡|坡|狮城|SG|Singapore)
-    proxies: [%all%]
-  - name: 🇨🇳 台湾节点
-    type: select
-    # selector: (台|新北|彰化|TW|Taiwan)
-    proxies: [%all%]
-  - name: 🇰🇷 韩国节点
-    type: select
-    # selector: (KR|Korea|KOR|首尔|韩|韓)
-    proxies: [%all%]
-  - name: SP 特殊节点
-    type: select
-    # selector: (🇮🇱|🇮🇸|🇮🇩|🇹🇷|🇵🇰|🇧🇷|🇩🇪|🇮🇹|🇳🇴|🇫🇷|🇵🇱|🇹🇭|🇦🇺|🇨🇭|🇬🇧|🇳🇱|🇵🇭|🇦🇷|🇦🇪|🇲🇾|🇻🇳|🇱🇺|🇺🇦|🇷🇺|🇨🇦|🇿🇦|🇮🇳|🇪🇬|🇲🇽|🇲🇩|🇨🇱|🇰🇵|🇮🇪|🇸🇪|🇪🇸|🇳🇬|🇻🇦|南极|🇰🇵|🇰🇭|🇲🇲|🇫🇮)
-    proxies: [%all%]
+    proxies: [🚀 节点选择, DIRECT, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 狮城节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🌍 其他地区, 🚀 手动切换]
 
 rule-providers:
   LocalAreaNetwork:
@@ -567,8 +653,8 @@ rules:
   - RULE-SET,Google,📢 谷歌
   - RULE-SET,GoogleCN_1,🎯 全球直连
   - RULE-SET,SteamCN,🎯 全球直连
-  - RULE-SET,OneDrive,Ⓜ️ 微软云盘
-  - RULE-SET,Microsoft,Ⓜ️ 微软服务
+  - RULE-SET,OneDrive,☁️ 微软云盘
+  - RULE-SET,Microsoft,☁️ 微软服务
   - RULE-SET,Apple,🍎 苹果服务
   - RULE-SET,Telegram,📲 电报消息
   - RULE-SET,OpenAI,💬 OpenAi
@@ -593,7 +679,7 @@ rules:
   - RULE-SET,BilibiliHMT,📺 哔哩哔哩
   - RULE-SET,Bilibili,📺 哔哩哔哩
   - RULE-SET,TikTok,📺 TikTok
-  - RULE-SET,ChinaMedia,🌏 国内媒体
+  - RULE-SET,ChinaMedia,🌍 国内媒体
   - RULE-SET,ProxyMedia,🌍 国外媒体
   - RULE-SET,ProxyGFWlist,🚀 节点选择
   - RULE-SET,ChinaDomain,🎯 全球直连
