@@ -187,7 +187,7 @@ proxy-groups:
     type: select
     proxies: [🚀 节点选择, 🇸🇬 狮城节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🌍 其他地区, 🚀 手动切换, DIRECT]
     
-  - name: 🎥 HBO_GO_HKG
+  - name: 🎥 HBO
     type: select
     proxies: [🚀 节点选择, 🇸🇬 狮城节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🌍 其他地区, 🚀 手动切换, DIRECT]
     
@@ -215,7 +215,7 @@ proxy-groups:
     type: select
     proxies: [🎯 全球直连, 🇨🇳 台湾节点, 🇭🇰 香港节点]
     
-  - name: 🌍 国外媒体
+  - name: 🌍 国外代理
     type: select
     proxies: [🚀 节点选择, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 狮城节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🌍 其他地区, 🚀 手动切换, DIRECT]
     
@@ -226,14 +226,6 @@ proxy-groups:
   - name: 📢 谷歌FCM
     type: select
     proxies: [DIRECT, 🚀 节点选择, 🇺🇲 美国节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 狮城节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🌍 其他地区, 🚀 手动切换]
-    
-  - name: 📢 谷歌🇨🇳Play下载
-    type: select
-    proxies: [🚀 节点选择, DIRECT, 🇸🇬 狮城节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🌍 其他地区, 🚀 手动切换]
-    
-  - name: 📢 谷歌🇨🇳Play服务
-    type: select
-    proxies: [🚀 节点选择, DIRECT, 🇸🇬 狮城节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🌍 其他地区, 🚀 手动切换]
     
   - name: 📢 谷歌🇨🇳
     type: select
@@ -268,18 +260,6 @@ proxy-groups:
     proxies: [REJECT, DIRECT]
     
   - name: 🛑 广告拦截
-    type: select
-    proxies: [REJECT, DIRECT]
-    
-  - name: 🍃 应用净化
-    type: select
-    proxies: [REJECT, DIRECT]
-    
-  - name: 🆎 AdBlock
-    type: select
-    proxies: [REJECT, DIRECT]
-    
-  - name: 🛡️ 隐私防护
     type: select
     proxies: [REJECT, DIRECT]
     
@@ -560,7 +540,7 @@ rules:
   - DOMAIN-SUFFIX,services.googleapis.cn,📢 谷歌
   - RULE-SET,YouTubeMusic,📹 油管music
   - RULE-SET,YouTube,📹 油管video
-  - RULE-SET,Google,📢 谷歌
+  - RULE-SET,Google,📢 谷歌🇨🇳
   - RULE-SET,SteamCN,🎯 全球直连
   - RULE-SET,OneDrive,☁️ 微软云盘
   - RULE-SET,Microsoft,☁️ 微软服务
