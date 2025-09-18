@@ -80,7 +80,7 @@ proxy-groups:
     type: url-test
     include-all: true
     exclude-type: direct
-    filter: "(?i)港|hk|hong kong|香港"
+    filter: "(?i)港|🇭🇰|hong kong|香港|HK"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
@@ -89,7 +89,7 @@ proxy-groups:
     type: url-test
     include-all: true
     exclude-type: direct
-    filter: "(?i)日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|jp|japan"
+    filter: "(?i)日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
@@ -98,7 +98,7 @@ proxy-groups:
     type: url-test
     include-all: true
     exclude-type: direct
-    filter: "(?i)美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|us|united states"
+    filter: "(?i)美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
@@ -107,7 +107,7 @@ proxy-groups:
     type: url-test
     include-all: true
     exclude-type: direct
-    filter: "(?i)新加坡|坡|狮城|sg|singapore"
+    filter: "(?i)新加坡|坡|狮城|SG|Singapore"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
@@ -116,7 +116,7 @@ proxy-groups:
     type: url-test
     include-all: true
     exclude-type: direct
-    filter: "(?i)台|新北|彰化|tw|taiwan"
+    filter: "(?i)台|新北|彰化|TW|Taiwan"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
@@ -125,7 +125,7 @@ proxy-groups:
     type: url-test
     include-all: true
     exclude-type: direct
-    filter: "(?i)kr|korea|kor|首尔|韩|韩国"
+    filter: "(?i)KR|Korea|KOR|首尔|韩|韩国|韓"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
