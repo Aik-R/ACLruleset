@@ -295,20 +295,20 @@ rule-providers:
   LocalAreaNetwork:
     type: http
     behavior: classical
-    path: ./ruleset/LocalAreaNetwork.list
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list
+    path: ./ruleset/LocalAreaNetwork.txt
+    url: https://raw.githubusercontent.com/Aik-R/ACLruleset/refs/heads/main/Ruleset/LocalAreaNetwork.txt
     interval: 86400
   UnBan:
     type: http
     behavior: classical
-    path: ./ruleset/UnBan.list
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/UnBan.list
+    path: ./ruleset/UnBan.txt
+    url: https://raw.githubusercontent.com/Aik-R/ACLruleset/refs/heads/main/Ruleset/UnBan.txt
     interval: 86400
   mi:
     type: http
     behavior: classical
-    path: ./ruleset/mi.list
-    url: https://raw.githubusercontent.com/Aik-R/ACLruleset/main/Ruleset/mi
+    path: ./ruleset/mi.txt
+    url: https://raw.githubusercontent.com/Aik-R/ACLruleset/refs/heads/main/Ruleset/mi.txt
     interval: 86400
   xuemashi:
     type: http
@@ -432,9 +432,9 @@ rule-providers:
     interval: 86400
   Apple:
     type: http
-    behavior: classical
-    path: ./ruleset/Apple.list
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Apple.list
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt"
+    path: ./ruleset/apple.yaml
     interval: 86400
   Telegram:
     type: http
