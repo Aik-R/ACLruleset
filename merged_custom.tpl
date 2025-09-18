@@ -207,10 +207,6 @@ proxy-groups:
     type: select
     proxies: [🚀 节点选择, 🚀 手动切换, 🇯🇵 日本节点, DIRECT]
     
-  - name: 📺 Emby
-    type: select
-    proxies: [🚀 节点选择, 🇸🇬 狮城节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🌍 其他地区, 🚀 手动切换, DIRECT]
-    
   - name: 📺 哔哩哔哩
     type: select
     proxies: [🎯 全球直连, 🇨🇳 台湾节点, 🇭🇰 香港节点]
