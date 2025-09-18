@@ -77,58 +77,40 @@ proxy-groups:
       
   # 地区节点组 - 使用正则表达式自动筛选
   - name: 🇭🇰 香港节点
-    type: url-test
+    type: select
     include-all: true
     exclude-type: direct
     filter: "(?i)港|🇭🇰|hong kong|香港|HK"
-    url: http://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
     
   - name: 🇯🇵 日本节点
-    type: url-test
+    type: select
     include-all: true
     exclude-type: direct
     filter: "(?i)日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan"
-    url: http://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
     
   - name: 🇺🇲 美国节点
-    type: url-test
+    type: select
     include-all: true
     exclude-type: direct
     filter: "(?i)美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States"
-    url: http://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
     
   - name: 🇸🇬 狮城节点
-    type: url-test
+    type: select
     include-all: true
     exclude-type: direct
     filter: "(?i)新加坡|坡|狮城|SG|Singapore"
-    url: http://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
     
   - name: 🇨🇳 台湾节点
-    type: url-test
+    type: select
     include-all: true
     exclude-type: direct
     filter: "(?i)台|新北|彰化|TW|Taiwan"
-    url: http://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
     
   - name: 🇰🇷 韩国节点
-    type: url-test
+    type: select
     include-all: true
     exclude-type: direct
     filter: "(?i)KR|Korea|KOR|首尔|韩|韩国|韓"
-    url: http://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
     
   - name: 🌍 其他地区
     type: select
