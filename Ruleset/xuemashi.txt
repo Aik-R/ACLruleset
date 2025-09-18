@@ -1,0 +1,7 @@
+payload:
+- DOMAIN-KEYWORD, .game-gakuen-idolmaster.
+- DOMAIN-SUFFIX, object.asset.game-gakuen-idolmaster.jp
+- DOMAIN-SUFFIX, api.game-gakuen-idolmaster.jp
+- DOMAIN-SUFFIX, stat.game-gakuen-idolmaster.jp
+- DOMAIN-SUFFIX, api.asset.game-gakuen-idolmaster.jp
+
