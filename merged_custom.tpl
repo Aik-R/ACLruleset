@@ -295,26 +295,26 @@ rule-providers:
   LocalAreaNetwork:
     type: http
     behavior: classical
-    path: ./ruleset/LocalAreaNetwork.txt
+    path: ./ruleset/LocalAreaNetwork.yaml
     url: https://raw.githubusercontent.com/Aik-R/ACLruleset/refs/heads/main/Ruleset/LocalAreaNetwork.txt
     interval: 86400
   UnBan:
     type: http
     behavior: classical
-    path: ./ruleset/UnBan.txt
+    path: ./ruleset/UnBan.yaml
     url: https://raw.githubusercontent.com/Aik-R/ACLruleset/refs/heads/main/Ruleset/UnBan.txt
     interval: 86400
   mi:
     type: http
     behavior: classical
-    path: ./ruleset/mi.txt
+    path: ./ruleset/mi.yaml
     url: https://raw.githubusercontent.com/Aik-R/ACLruleset/refs/heads/main/Ruleset/mi.txt
     interval: 86400
   xuemashi:
     type: http
     behavior: classical
-    path: ./ruleset/xuemashi.list
-    url: https://raw.githubusercontent.com/Aik-R/ACLruleset/main/Ruleset/xuemashi.list
+    path: ./ruleset/xuemashi.yaml
+    url: https://raw.githubusercontent.com/Aik-R/ACLruleset/refs/heads/main/Ruleset/xuemashi.txt
     interval: 86400
   DMM:
     type: http
