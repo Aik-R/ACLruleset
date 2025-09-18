@@ -137,7 +137,7 @@ proxy-groups:
     
   - name: 🎮 学马仕
     type: select
-    proxies: [🚀 节点选择, 🚀 手动切换, DIRECT]
+    proxies: [🚀 节点选择, 🚀 手动切换, 🇯🇵 日本节点, DIRECT]
     
   - name: 📲 Twitter
     type: select
@@ -161,7 +161,7 @@ proxy-groups:
     
   - name: 📲 DMM
     type: select
-    proxies: [🚀 节点选择, 🚀 手动切换, DIRECT]
+    proxies: [🚀 节点选择, 🚀 手动切换,  🇯🇵 日本节点, DIRECT]
     
   - name: 📹 油管video
     type: select
@@ -201,11 +201,11 @@ proxy-groups:
     
   - name: 📺 AbemaTV
     type: select
-    proxies: [🚀 节点选择, 🚀 手动切换, DIRECT]
+    proxies: [🚀 节点选择, 🚀 手动切换, 🇯🇵 日本节点, DIRECT]
     
   - name: 📺 Niconico
     type: select
-    proxies: [🚀 节点选择, 🚀 手动切换, DIRECT]
+    proxies: [🚀 节点选择, 🚀 手动切换, 🇯🇵 日本节点, DIRECT]
     
   - name: 📺 Emby
     type: select
