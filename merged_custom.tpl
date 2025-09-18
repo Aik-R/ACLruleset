@@ -187,7 +187,7 @@ proxy-groups:
     type: select
     proxies: [🚀 节点选择, 🇸🇬 狮城节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🌍 其他地区, 🚀 手动切换, DIRECT]
     
-  - name: 🎥 HBO
+  - name: 🎥 HBOs
     type: select
     proxies: [🚀 节点选择, 🇸🇬 狮城节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🌍 其他地区, 🚀 手动切换, DIRECT]
     
@@ -452,7 +452,7 @@ rule-providers:
     path: ./ruleset/Disney.yaml
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Disney/Disney.yaml"
     interval: 86400
-  HBO:
+  HBOs:
     type: http
     behavior: classical
     path: ./ruleset/HBO.yaml
@@ -500,7 +500,7 @@ rule-providers:
     path: ./ruleset/ChinaMedia.yaml
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMedia/ChinaMedia.yaml"
     interval: 86400
-  Proxy:
+  Abroad:
     type: http
     behavior: classical
     path: ./ruleset/Global_Classical.yaml
@@ -558,7 +558,7 @@ rules:
   - RULE-SET,Steam,🎮 游戏平台
   - RULE-SET,Amazon,🎥 Amazon
   - RULE-SET,Disney,🎥 Disney+
-  - RULE-SET,HBO,🎥 HBO
+  - RULE-SET,HBOs,🎥 HBOs
   - RULE-SET,Netflix,🎥 奈飞视频
   - RULE-SET,AbemaTV,📺 AbemaTV
   - RULE-SET,Niconico,📺 Niconico
@@ -566,7 +566,7 @@ rules:
   - RULE-SET,Bilibili,📺 哔哩哔哩
   - RULE-SET,TikTok,📺 TikTok
   - RULE-SET,ChinaMedia,🌍 国内媒体
-  - RULE-SET,Proxy,🌍 国外代理
+  - RULE-SET,Abroad,🌍 国外代理
   - RULE-SET,China,🎯 全球直连
   - RULE-SET,ChinaIp,🎯 全球直连
   - RULE-SET,Download,🎯 全球直连
