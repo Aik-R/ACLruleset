@@ -264,22 +264,22 @@ proxy-groups:
     proxies: [🚀 节点选择, DIRECT, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 狮城节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🌍 其他地区, 🚀 手动切换]
 
 rule-providers:
- Lan:
+  Lan:
     type: http
     behavior: classical
     path: ./ruleset/Lan.yaml
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml"
     interval: 86400
- LocalAreaNetwork:
+  LocalAreaNetwork:
     type: http
     behavior: classical
     path: ./ruleset/LocalAreaNetwork.yaml
     url: "https://raw.githubusercontent.com/Aik-R/ACLruleset/refs/heads/main/Ruleset/LocalAreaNetwork.txt"
     interval: 86400
-  NTP-Service:
+  NTPService:
     type: http
     behavior: classical
-    path: ./rule_provider/NTP-Service.yaml
+    path: ./rule_provider/NTPService.yaml
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/NTPService/NTPService.yaml"
     interval: 86400
   Direct:
@@ -539,7 +539,7 @@ rule-providers:
 rules:
   - RULE-SET,Lan,🎯 全球直连
   - RULE-SET,LocalAreaNetwork,🎯 全球直连
-  - RULE-SET,NTP-Service,🎯 全球直连
+  - RULE-SET,NTPService,🎯 全球直连
   - RULE-SET,Direct,🎯 全球直连
   - RULE-SET,mi,🛡️ miBlock
   - RULE-SET,xuemashi,🎮 学马仕
