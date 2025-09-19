@@ -522,7 +522,7 @@ rule-providers:
     path: ./ruleset/TikTok.yaml
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.yaml"
     interval: 86400
- ChinaMax:
+  ChinaMax:
     type: http
     behavior: classical
     path: ./ruleset/ChinaMax_Classical.yaml
