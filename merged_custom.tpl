@@ -251,10 +251,6 @@ proxy-groups:
     type: select
     proxies: [DIRECT, 🚀 节点选择]
     
-  - name: 🛑 强力拦截
-    type: select
-    proxies: [REJECT, DIRECT]
-    
   - name: 🛑 广告拦截
     type: select
     proxies: [REJECT, DIRECT]
@@ -268,17 +264,29 @@ proxy-groups:
     proxies: [🚀 节点选择, DIRECT, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 狮城节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🌍 其他地区, 🚀 手动切换]
 
 rule-providers:
-  LocalAreaNetwork:
+ Lan:
+    type: http
+    behavior: classical
+    path: ./ruleset/Lan.yaml
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml"
+    interval: 86400
+ LocalAreaNetwork:
     type: http
     behavior: classical
     path: ./ruleset/LocalAreaNetwork.yaml
     url: "https://raw.githubusercontent.com/Aik-R/ACLruleset/refs/heads/main/Ruleset/LocalAreaNetwork.txt"
     interval: 86400
-  UnBan:
+  NTP-Service:
     type: http
     behavior: classical
-    path: ./ruleset/UnBan.yaml
-    url: "https://raw.githubusercontent.com/Aik-R/ACLruleset/refs/heads/main/Ruleset/UnBan.txt"
+    path: ./rule_provider/NTP-Service.yaml
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/NTPService/NTPService.yaml"
+    interval: 86400
+  Direct:
+    type: http
+    behavior: classical
+    path: ./ruleset/Direct.yaml
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Direct/Direct.yaml"
     interval: 86400
   mi:
     type: http
@@ -304,6 +312,12 @@ rule-providers:
     path: ./ruleset/Bahamut.yaml
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Bahamut/Bahamut.yaml"
     interval: 86400
+  Download:
+    type: http
+    behavior: classical
+    path: ./ruleset/Download.yaml
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Download/Download.yaml"
+    interval: 86400
   Advertising:
     type: http
     behavior: classical
@@ -315,6 +329,24 @@ rule-providers:
     behavior: domain
     path: ./ruleset/anti-ad.yaml
     url: "https://anti-ad.net/clash.yaml"
+    interval: 86400
+  Hijacking:
+    type: http
+    behavior: domain
+    path: ./ruleset/Hijacking.yaml
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Hijacking/Hijacking.yaml"
+    interval: 86400
+  BlockHttpDNS:
+    type: http
+    behavior: domain
+    path: ./ruleset/BlockHttpDNS.yaml
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BlockHttpDNS/BlockHttpDNS.yaml"
+    interval: 86400
+  Privacy_Classical:
+    type: http
+    behavior: domain
+    path: ./ruleset/Privacy_Classical.yaml
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Privacy/Privacy_Classical.yaml"
     interval: 86400
   Gemini:
     type: http
@@ -490,46 +522,34 @@ rule-providers:
     path: ./ruleset/TikTok.yaml
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.yaml"
     interval: 86400
-  ChinaMedia:
+ ChinaMax:
     type: http
     behavior: classical
-    path: ./ruleset/ChinaMedia.yaml
-    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMedia/ChinaMedia.yaml"
+    path: ./ruleset/ChinaMax_Classical.yaml
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMax/ChinaMax_Classical.yaml"
     interval: 86400
   Abroad:
     type: http
     behavior: classical
     path: ./ruleset/Global_Classical.yaml
-    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Global/Global_Classical.yaml"
-    interval: 86400
-  China:
-    type: http
-    behavior: classical
-    path: ./ruleset/China.yaml
-    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/China/China.yaml"
-    interval: 86400
-  ChinaIp:
-    type: http
-    behavior: classical
-    path: ./ruleset/ChinaIPs_IP.yaml
-    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaIPs/ChinaIPs_IP.yaml"
-    interval: 86400
-  Download:
-    type: http
-    behavior: classical
-    path: ./ruleset/Download.yaml
-    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Download/Download.yaml"
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Global/Privacy_Classical.yaml"
     interval: 86400
 
+
 rules:
+  - RULE-SET,Lan,🎯 全球直连
   - RULE-SET,LocalAreaNetwork,🎯 全球直连
-  - RULE-SET,UnBan,🎯 全球直连
+  - RULE-SET,NTP-Service,🎯 全球直连
+  - RULE-SET,Direct,🎯 全球直连
   - RULE-SET,mi,🛡️ miBlock
   - RULE-SET,xuemashi,🎮 学马仕
   - RULE-SET,DMM,📲 DMM
   - RULE-SET,Bahamut,📺 巴哈姆特
   - RULE-SET,Advertising,🛑 广告拦截
-  - RULE-SET,anti-ad,🛑 强力拦截
+  - RULE-SET,anti-ad,🛑 广告拦截
+  - RULE-SET,Hijacking,🛑 广告拦截
+  - RULE-SET,BlockHttpDNS,🛑 广告拦截
+  - RULE-SET,Privacy_Classical,🛑 广告拦截
   - RULE-SET,Gemini,📢 Gemini
   - RULE-SET,GoogleFCM,📢 谷歌FCM
   - DOMAIN-SUFFIX,xn--ngstr-lra8j.com,📢 谷歌
@@ -561,10 +581,8 @@ rules:
   - RULE-SET,Spotify,📺 Spotify
   - RULE-SET,Bilibili,📺 哔哩哔哩
   - RULE-SET,TikTok,📺 TikTok
-  - RULE-SET,ChinaMedia,🌍 国内媒体
   - RULE-SET,Abroad,🌍 国外代理
-  - RULE-SET,China,🎯 全球直连
-  - RULE-SET,ChinaIp,🎯 全球直连
+  - RULE-SET,ChinaMax,🎯 全球直连
   - RULE-SET,Download,🎯 全球直连
   - GEOIP,CN,🎯 全球直连
   - MATCH,🐟 漏网之鱼
