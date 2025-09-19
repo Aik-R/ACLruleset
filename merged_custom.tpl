@@ -532,7 +532,7 @@ rule-providers:
     type: http
     behavior: classical
     path: ./ruleset/Global_Classical.yaml
-    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Global/Privacy_Classical.yaml"
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Global/Global_Classical.yaml"
     interval: 86400
 
 
