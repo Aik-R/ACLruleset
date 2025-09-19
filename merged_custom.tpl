@@ -585,4 +585,5 @@ rules:
   - RULE-SET,ChinaMax,🎯 全球直连
   - RULE-SET,Download,🎯 全球直连
   - GEOIP,CN,🎯 全球直连
+  - GEOSITE,CN,🎯 全球直连
   - MATCH,🐟 漏网之鱼
