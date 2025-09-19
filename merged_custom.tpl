@@ -312,7 +312,7 @@ rule-providers:
     interval: 86400
   anti-ad:
     type: http
-    behavior: classical
+    behavior: domain
     path: ./ruleset/anti-ad.yaml
     url: "https://anti-ad.net/clash.yaml"
     interval: 86400
