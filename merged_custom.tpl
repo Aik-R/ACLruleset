@@ -542,6 +542,7 @@ rules:
   - RULE-SET,NTPService,🎯 全球直连
   - RULE-SET,Direct,🎯 全球直连
   - RULE-SET,mi,🛡️ miBlock
+  - RULE-SET,Download,🎯 全球直连
   - RULE-SET,xuemashi,🎮 学马仕
   - RULE-SET,DMM,📲 DMM
   - RULE-SET,Bahamut,📺 巴哈姆特
@@ -583,7 +584,6 @@ rules:
   - RULE-SET,TikTok,📺 TikTok
   - RULE-SET,Abroad,🌍 国外代理
   - RULE-SET,ChinaMax,🎯 全球直连
-  - RULE-SET,Download,🎯 全球直连
   - GEOIP,CN,🎯 全球直连
   - GEOSITE,CN,🎯 全球直连
   - MATCH,🐟 漏网之鱼
