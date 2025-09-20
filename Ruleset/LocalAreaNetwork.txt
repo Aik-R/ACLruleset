@@ -46,4 +46,4 @@ payload:
 
 
 #自加
--DOMAIN-SUFFIX,ouo.io
+- DOMAIN-SUFFIX,ouo.io
