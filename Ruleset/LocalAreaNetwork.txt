@@ -47,3 +47,4 @@ payload:
 
 #自加
 - DOMAIN-SUFFIX,ouo.io
+- DOMAIN-SUFFIX,sooplive.com
