@@ -58,5 +58,3 @@ payload:
 - DOMAIN-SUFFIX,FamilyDS.net
 - DOMAIN-SUFFIX,FamilyDS.org
 
-#自加
--DOMAIN-SUFFIX,ouo.io
