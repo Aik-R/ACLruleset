@@ -420,6 +420,12 @@ rule-providers:
     path: ./ruleset/Twitter.yaml
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitter/Twitter.yaml"
     interval: 86400
+  TikTok:
+    type: http
+    behavior: classical
+    path: ./ruleset/TikTok.yaml
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.yaml"
+    interval: 86400
   Facebook:
     type: http
     behavior: classical
@@ -515,12 +521,6 @@ rule-providers:
     behavior: classical
     path: ./ruleset/Bilibili.yaml
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BiliBili/BiliBili.yaml"
-    interval: 86400
-  TikTok:
-    type: http
-    behavior: classical
-    path: ./ruleset/TikTok.yaml
-    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.yaml"
     interval: 86400
   ChinaMax:
     type: http
