@@ -21,13 +21,14 @@ hosts:
 dns:
   enable: true
   listen: 127.0.0.1:5335
-  default-nameserver: [180.184.1.1, 119.29.29.29, 223.5.5.5]
+  respect-rules: true
+  default-nameserver: [119.29.29.29, 223.5.5.5]
   proxy-server-nameserver: [https://223.5.5.5/dns-query, https://doh.pub/dns-query]
   use-hosts: true
   use-system-hosts: true
-  enhanced-mode: fake-ip
-  fake-ip-filter: ["*.market.xiaomi.com","*.n.n.srv.nintendo.net", +.stun.playstation.net, xbox.*.*.microsoft.com, "*.msftncsi.com", "*.msftconnecttest.com", WORKGROUP, "*.lan", stun.*.*.*, stun.*.*, time.windows.com, time.nist.gov, time.apple.com, time.asia.apple.com, "*.ntp.org.cn", "*.openwrt.pool.ntp.org", time1.cloud.tencent.com, time.ustc.edu.cn, pool.ntp.org, ntp.ubuntu.com, "*.*.xboxlive.com", speedtest.cros.wr.pvp.net, stun.services.mozilla1.com, ntp.nasa.gov, captive.apple.com]
-  nameserver: [https://dns.alidns.com/dns-query, https://doh.pub/dns-query, https://223.5.5.5/dns-query]
+  enhanced-mode: redir-host
+  fake-ip-filter: ["*.market.xiaomi.com","*.n.n.srv.nintendo.net", +.stun.playstation.net, xbox.*.*.microsoft.com, "*.msftncsi.com", "*.msftconnecttest.com", WORKGROUP, "*.lan", stun.*.*.*, stun.*.*, time.windows.com, time.nist.gov, time.apple.com, time.asia.apple.com, "*.ntp.org.cn", "*.openwrt.pool.ntp.org", time1.cloud.tencent.com, time.ustc.edu.cn, pool.ntp.org, ntp.ubuntu.com, "*.*.xboxlive.com", speedtest.cros.wr.pvp.net, stun.services.mozilla1.com, ntp.nasa.gov]
+  nameserver: [https://doh.pub/dns-query, https://223.5.5.5/dns-query]
   nameserver-policy:
     "geosite:bytedance":
         - 180.184.1.1
@@ -38,6 +39,17 @@ dns:
         - system
     "geosite:private":
         - system
+  fallback:
+    - https://8.8.8.8/dns-query
+    - https://1.1.1.1/dns-query
+  fallback-filter:
+    geosite:
+      - category-porn
+      - category-forums
+      - category-cryptocurrency
+    ipcidr:
+      - 240.0.0.0/4
+      - 116.89.243.0/24
 
 proxies: # proxies - 1p 为节点信息区块, proxies - 3p 为节点列表区块 proxies - 3p - auto 为节点自动列表区块, 单独占一行
 %proxies-1p%
