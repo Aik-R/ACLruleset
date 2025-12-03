@@ -38,6 +38,26 @@ dns:
         - system
     "geosite:private":
         - system
+sniffer:
+  enable: true
+  parse-pure-ip: true
+  override-destination: true
+  sniff:
+    TLS:
+      ports: [443, 8443]
+    HTTP:
+      ports: [80, 8080-8880]
+    QUIC:
+      ports: [443, 8443]
+  force-domain: []
+
+  skip-domain:
+    - "Mijia Cloud"
+    - "dlg.io.mi.com"
+    - "+.apple.com"        
+    - "+.push.apple.com"   
+    - "+.music.163.com"    
+    - "*.baidu.com"       
 
 proxies: # proxies - 1p 为节点信息区块, proxies - 3p 为节点列表区块 proxies - 3p - auto 为节点自动列表区块, 单独占一行
 %proxies-1p%
