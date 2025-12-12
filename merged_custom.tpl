@@ -15,6 +15,12 @@ cfw-bypass:
   - 172.16.*
   - 192.168.*
   - <local>
+ ntp:
+  enable: true
+  write-to-system: false
+  server: ntp.tencent.com
+  port: 123
+  interval: 480
 hosts:
   mtalk.google.com: 108.177.125.188
   paoluz.link: 104.21.71.42
@@ -26,6 +32,7 @@ dns:
   use-hosts: true
   use-system-hosts: true
   enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
   fake-ip-filter: ["*.market.xiaomi.com","*.n.n.srv.nintendo.net", +.stun.playstation.net, xbox.*.*.microsoft.com, "*.msftncsi.com", "*.msftconnecttest.com", WORKGROUP, "*.lan", stun.*.*.*, stun.*.*, time.windows.com, time.nist.gov, time.apple.com, time.asia.apple.com, "*.ntp.org.cn", "*.openwrt.pool.ntp.org", time1.cloud.tencent.com, time.ustc.edu.cn, pool.ntp.org, ntp.ubuntu.com, "*.*.xboxlive.com", speedtest.cros.wr.pvp.net, stun.services.mozilla1.com, ntp.nasa.gov, captive.apple.com]
   nameserver: [https://dns.alidns.com/dns-query, https://doh.pub/dns-query, https://223.5.5.5/dns-query]
   nameserver-policy:
