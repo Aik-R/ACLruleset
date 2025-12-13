@@ -10,11 +10,12 @@ clash-for-android:
   append-system-dns: false
 cfw-bypass:
   - localhost
-  - 127.*
-  - 10.*
-  - 172.16.*
-  - 192.168.*
-  - <local>
+  - '127.*'
+  - '10.*'
+  - '172.16.*'
+  - '192.168.*'
+  - '<local>'
+
  ntp:
   enable: true
   write-to-system: false
