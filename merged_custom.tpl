@@ -429,29 +429,29 @@ rule-providers:
     path: ./ruleset/OpenAI.yaml
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.yaml"
     interval: 86400
-  Twitter:
-    type: http
-    behavior: classical
-    path: ./ruleset/Twitter.yaml
-    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitter/Twitter.yaml"
-    interval: 86400
   TikTok:
     type: http
     behavior: classical
     path: ./ruleset/TikTok.yaml
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.yaml"
     interval: 86400
-  Facebook:
+  Twitter:
     type: http
     behavior: classical
-    path: ./ruleset/Facebook.yaml
-    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Facebook/Facebook.yaml"
+    path: ./ruleset/Twitter.yaml
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitter/Twitter.yaml"
     interval: 86400
   Instagram:
     type: http
     behavior: classical
     path: ./ruleset/Instagram.yaml
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Instagram/Instagram.yaml"
+    interval: 86400
+  Facebook:
+    type: http
+    behavior: classical
+    path: ./ruleset/Facebook.yaml
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Facebook/Facebook.yaml"
     interval: 86400
   Pixiv:
     type: http
