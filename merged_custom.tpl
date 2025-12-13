@@ -168,7 +168,11 @@ proxy-groups:
     
   - name: 📲 DMM
     type: select
-    proxies: [🚀 节点选择, 🚀 手动切换,  🇯🇵 日本节点, DIRECT]
+    include-all: true
+    exclude-type: direct
+    filter: "(?i)日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan"
+    proxies: [🚀 节点选择, 🚀 手动切换, DIRECT]
+
     
   - name: 📹 油管video
     type: select
