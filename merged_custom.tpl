@@ -582,13 +582,13 @@ rules:
   - RULE-SET,Epic,🎮 游戏平台
   - RULE-SET,Sony,🎮 游戏平台
   - RULE-SET,Steam,🎮 游戏平台
+  - RULE-SET,AbemaTV,📺 AbemaTV
+  - RULE-SET,Niconico,📺 Niconico
+  - RULE-SET,Bilibili,📺 哔哩哔哩
   - RULE-SET,Amazon,🎥 Amazon
   - RULE-SET,Disney,🎥 Disney+
   - RULE-SET,HBOs,🎥 HBOs
   - RULE-SET,Netflix,🎥 奈飞视频
-  - RULE-SET,AbemaTV,📺 AbemaTV
-  - RULE-SET,Niconico,📺 Niconico
-  - RULE-SET,Bilibili,📺 哔哩哔哩
   - RULE-SET,Abroad,🌍 国外代理
   - RULE-SET,ChinaMax,🎯 全球直连
   - GEOIP,CN,🎯 全球直连
