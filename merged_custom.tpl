@@ -560,8 +560,8 @@ rules:
   - RULE-SET,Privacy_Classical,🛑 广告拦截
   - RULE-SET,Gemini,📢 Gemini
   - RULE-SET,GoogleFCM,📢 谷歌FCM
-  - DOMAIN-SUFFIX,xn--ngstr-lra8j.com,📢 谷歌
-  - DOMAIN-SUFFIX,services.googleapis.cn,📢 谷歌
+  - DOMAIN-SUFFIX,xn--ngstr-lra8j.com,📢 谷歌🇨🇳
+  - DOMAIN-SUFFIX,services.googleapis.cn,📢 谷歌🇨🇳
   - RULE-SET,YouTubeMusic,📹 油管music
   - RULE-SET,YouTube,📹 油管video
   - RULE-SET,Google,📢 谷歌
