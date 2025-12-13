@@ -2,7 +2,7 @@ mixed-port: 7890
 allow-lan: false
 mode: rule
 log-level: warning
-external-controller: 127.0.0.1:9090
+external-controller: '127.0.0.1:9090'
 unified-delay: true
 global-client-fingerprint: chrome
 keep-alive-interval: 360
@@ -15,8 +15,7 @@ cfw-bypass:
   - '172.16.*'
   - '192.168.*'
   - '<local>'
-
- ntp:
+ntp:
   enable: true
   write-to-system: false
   server: ntp.tencent.com
