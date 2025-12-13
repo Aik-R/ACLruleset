@@ -564,17 +564,19 @@ rules:
   - DOMAIN-SUFFIX,services.googleapis.cn,📢 谷歌
   - RULE-SET,YouTubeMusic,📹 油管music
   - RULE-SET,YouTube,📹 油管video
-  - RULE-SET,Google,📢 谷歌🇨🇳
+  - RULE-SET,Google,📢 谷歌
   - RULE-SET,SteamCN,🎯 全球直连
   - RULE-SET,OneDrive,☁️ 微软云盘
   - RULE-SET,Microsoft,☁️ 微软服务
   - RULE-SET,Apple,🍎 苹果服务
   - RULE-SET,Telegram,📲 电报消息
   - RULE-SET,OpenAI,💬 OpenAi
+  - RULE-SET,TikTok,📺 TikTok
   - RULE-SET,Twitter,📲 Twitter
-  - RULE-SET,Facebook,📲 Facebook
   - RULE-SET,Instagram,📲 Instagram
+  - RULE-SET,Facebook,📲 Facebook
   - RULE-SET,Pixiv,📲 Pixiv
+  - RULE-SET,Spotify,📺 Spotify
   - RULE-SET,EHGallery,📲 EH
   - RULE-SET,NetEaseMusic,🎶 网易音乐
   - RULE-SET,Epic,🎮 游戏平台
@@ -586,9 +588,7 @@ rules:
   - RULE-SET,Netflix,🎥 奈飞视频
   - RULE-SET,AbemaTV,📺 AbemaTV
   - RULE-SET,Niconico,📺 Niconico
-  - RULE-SET,Spotify,📺 Spotify
   - RULE-SET,Bilibili,📺 哔哩哔哩
-  - RULE-SET,TikTok,📺 TikTok
   - RULE-SET,Abroad,🌍 国外代理
   - RULE-SET,ChinaMax,🎯 全球直连
   - GEOIP,CN,🎯 全球直连
