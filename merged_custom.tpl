@@ -208,12 +208,7 @@ proxy-groups:
     
   - name: 📺 AbemaTV
     type: select
-    proxies: 
-      -🚀 节点选择, 
-      -🚀 手动切换, 
-      -DIRECT, 
-    include-all: true
-    filter: "(?i)日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan"
+    proxies: [🚀 节点选择, 🚀 手动切换, 🇯🇵 日本节点, DIRECT]
     
   - name: 📺 Niconico
     type: select
