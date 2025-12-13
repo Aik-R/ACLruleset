@@ -144,7 +144,10 @@ proxy-groups:
     
   - name: 🎮 学马仕
     type: select
-    proxies: [🚀 节点选择, 🚀 手动切换, 🇯🇵 日本节点, DIRECT]
+    include-all: true
+    exclude-type: direct
+    filter: "(?i)日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan"
+    proxies: [🚀 节点选择, 🚀 手动切换, DIRECT]
     
   - name: 📲 Twitter
     type: select
@@ -173,7 +176,6 @@ proxy-groups:
     filter: "(?i)日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan"
     proxies: [🚀 节点选择, 🚀 手动切换, DIRECT]
 
-    
   - name: 📹 油管video
     type: select
     proxies: [🚀 节点选择, 🇭🇰 香港节点, 🇸🇬 狮城节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🌍 其他地区, 🚀 手动切换, DIRECT]
@@ -212,11 +214,17 @@ proxy-groups:
     
   - name: 📺 AbemaTV
     type: select
-    proxies: [🚀 节点选择, 🚀 手动切换, 🇯🇵 日本节点, DIRECT]
+    include-all: true
+    exclude-type: direct
+    filter: "(?i)日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan"
+    proxies: [🚀 节点选择, 🚀 手动切换, DIRECT]
     
   - name: 📺 Niconico
     type: select
-    proxies: [🚀 节点选择, 🚀 手动切换, 🇯🇵 日本节点, DIRECT]
+    include-all: true
+    exclude-type: direct
+    filter: "(?i)日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan"
+    proxies: [🚀 节点选择, 🚀 手动切换, DIRECT]
     
   - name: 📺 哔哩哔哩
     type: select
