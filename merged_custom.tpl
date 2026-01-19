@@ -207,9 +207,11 @@ proxy-groups:
     type: select
     proxies: [🚀 节点选择, 🇸🇬 狮城节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🌍 其他地区, 🚀 手动切换, DIRECT]
 
-  - name: 📺 lowdonw
+- name: 📺 lowdonw
     type: select
-    proxies: [🚀 节点选择, 🇸🇬 狮城节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🌍 其他地区, 🚀 手动切换, DIRECT]
+    include-all: true
+    exclude-type: direct
+    filter: "(?i)(\\[0\\.| 0\\.|x0\\.|倍率:0\\.)"
     
   - name: 📺 巴哈姆特
     type: select
