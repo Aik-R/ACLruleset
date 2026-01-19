@@ -49,3 +49,4 @@ payload:
 - DOMAIN-SUFFIX,ouo.io
 - DOMAIN-SUFFIX,sooplive.com
 - DOMAIN-KEYWORD,.nulla.
+- DOMAIN-KEYWORD,.maj-soul.
