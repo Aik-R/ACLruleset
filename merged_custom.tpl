@@ -210,6 +210,10 @@ proxy-groups:
   - name: 📺 PikPak
     type: select
     proxies: [🚀 节点选择, 🇸🇬 狮城节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🌍 其他地区, 🚀 手动切换, DIRECT]
+
+  - name: 📺 lowdonw
+    type: select
+    proxies: [🚀 节点选择, 🇸🇬 狮城节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🌍 其他地区, 🚀 手动切换, DIRECT]
     
   - name: 📺 巴哈姆特
     type: select
@@ -436,6 +440,18 @@ rule-providers:
     path: ./ruleset/PikPak.yaml
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/PikPak/PikPak.yaml"
     interval: 86400
+  MEGA:
+    type: http
+    behavior: classical
+    path: ./ruleset/MEGA.yaml
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/MEGA/MEGA.yaml"
+    interval: 86400
+  Misc:
+    type: http  
+    behavior: classical
+    path: ./ruleset/Misc.yaml
+    url: "https://raw.githubusercontent.com/Aik-R/ACLruleset/refs/heads/main/Ruleset/misc.txt"
+    interval: 86400
   OpenAI:
     type: http
     behavior: classical
@@ -592,6 +608,8 @@ rules:
   - RULE-SET,Apple,🍎 苹果服务
   - RULE-SET,Telegram,📲 电报消息
   - RULE-SET,PikPak,📺 PikPak
+  - RULE-SET,MEGA,📺 lowdonw
+  - RULE-SET,Misc,📺 lowdonw
   - RULE-SET,OpenAI,💬 OpenAi
   - RULE-SET,TikTok,📺 TikTok
   - RULE-SET,Twitter,📲 Twitter
