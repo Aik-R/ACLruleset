@@ -212,6 +212,7 @@ proxy-groups:
     include-all: true
     exclude-type: direct
     filter: "(?i)(\\[0\\.| 0\\.|x0\\.|倍率:0\\.)"
+    proxies: [🚀 节点选择, 🚀 手动切换, DIRECT]
        
   - name: 📺 巴哈姆特
     type: select
