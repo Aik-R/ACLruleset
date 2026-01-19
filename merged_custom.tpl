@@ -206,13 +206,13 @@ proxy-groups:
   - name: 📺 Spotify
     type: select
     proxies: [🚀 节点选择, 🇸🇬 狮城节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🌍 其他地区, 🚀 手动切换, DIRECT]
-
-- name: 📺 lowdonw
+  
+  - name: 📺 lowdonw
     type: select
     include-all: true
     exclude-type: direct
     filter: "(?i)(\\[0\\.| 0\\.|x0\\.|倍率:0\\.)"
-    
+       
   - name: 📺 巴哈姆特
     type: select
     proxies: [🇨🇳 台湾节点, 🚀 节点选择, 🚀 手动切换, DIRECT]
