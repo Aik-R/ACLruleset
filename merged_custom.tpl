@@ -448,8 +448,8 @@ rule-providers:
   Misc:
     type: http
     behavior: classical
-    path: ./ruleset/misc.yaml
-    url: "https://raw.githubusercontent.com/Aik-R/ACLruleset/refs/heads/main/Ruleset/misc.txt"
+    path: ./ruleset/Misc.yaml  
+    url: "https://raw.githubusercontent.com/Aik-R/ACLruleset/refs/heads/main/Ruleset/Misc.txt"
     interval: 86400
   OpenAI:
     type: http
