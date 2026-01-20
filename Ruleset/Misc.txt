@@ -2,3 +2,4 @@ payload:
 #low
 - DOMAIN-KEYWORD,.sync.
 - DOMAIN-KEYWORD,.vgmtreasurechest.
+- DOMAIN-KEYWORD,.mediafire.
