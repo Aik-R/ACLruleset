@@ -50,3 +50,4 @@ payload:
 - DOMAIN-KEYWORD,.sooplive.
 - DOMAIN-KEYWORD,.nulla.
 - DOMAIN-KEYWORD,.maj-soul.
+- DOMAIN-KEYWORD,.live.mmf.moe.
