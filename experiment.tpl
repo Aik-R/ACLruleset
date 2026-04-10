@@ -66,7 +66,7 @@ proxy-groups:
     exclude-type: direct
     filter: "(?i)港|🇭🇰|hong kong|香港|HK"
     proxies:
-      - [cite_start]DIRECT
+      - DIRECT
     
   - name: 🇯🇵 日本节点
     type: select
@@ -569,7 +569,6 @@ rule-providers:
     path: ./ruleset/Global_Classical.yaml
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Global/Global_Classical.yaml"
     interval: 86400
-
 
 rules:
   - RULE-SET,Lan,🎯 全球直连
