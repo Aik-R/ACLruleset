@@ -35,8 +35,8 @@ dns:
   nameserver: ['https://223.6.6.6/dns-query', 'https://doh.pub/dns-query']
   proxy-server-nameserver: ['https://223.5.5.5/dns-query', 'https://doh.pub/dns-query']  
 
-proxies: # proxies - 1p 为节点信息区块, proxies - 3p 为节点列表区块 proxies - 3p - auto 为节点自动列表区块, 单独占一行
-%proxies-1p%
+proxies: 
+{{ proxies }}
 
 proxy-groups:
   - name: 🚀 节点选择
