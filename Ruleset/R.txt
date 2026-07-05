@@ -1,5 +1,5 @@
 payload:
 #自加
 #-DOMAIN-SUFFIX,ouo.io 
-- DOMAIN-KEYWORD,.bangumi.
-- DOMAIN-KEYWORD,.bgm.
+- DOMAIN-SUFFIX,.bangumi.tv
+- DOMAIN-SUFFIX,.bgm.tv
