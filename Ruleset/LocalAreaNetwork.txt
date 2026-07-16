@@ -47,7 +47,7 @@ payload:
 
 #自加
 - DOMAIN-SUFFIX,ouo.io
-- DOMAIN-KEYWORD,.sooplive.
+#- DOMAIN-KEYWORD,.sooplive.
 - DOMAIN-KEYWORD,.nulla.
 - DOMAIN-KEYWORD,.maj-soul.
 - DOMAIN-KEYWORD,.live.mmf.moe.
