@@ -3,3 +3,4 @@ payload:
 #-DOMAIN-SUFFIX,ouo.io 
 - DOMAIN-SUFFIX,bangumi.tv
 - DOMAIN-SUFFIX,bgm.tv
+- DOMAIN-KEYWORD,.sooplive.
