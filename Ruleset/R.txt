@@ -4,5 +4,6 @@ payload:
 - DOMAIN-SUFFIX,bangumi.tv
 - DOMAIN-SUFFIX,bgm.tv
 - DOMAIN-KEYWORD,.sooplive.
+- DOMAIN-SUFFIX,ascii2d.net
 
 
