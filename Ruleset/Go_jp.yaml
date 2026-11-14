@@ -1,6 +1,4 @@
 payload:
-#自加
-- DOMAIN-SUFFIX,ascii2d.net
 # ===== DLsite =====
 - DOMAIN-SUFFIX,dlsite.com
 - DOMAIN-SUFFIX,dlsite.jp
