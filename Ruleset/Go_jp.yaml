@@ -1,6 +1,16 @@
 payload:
 #自加
 - DOMAIN-SUFFIX,ascii2d.net
+# ===== DLsite =====
+- DOMAIN-SUFFIX,dlsite.com
+- DOMAIN-SUFFIX,dlsite.jp
+- DOMAIN-SUFFIX,ci-en.net
+- DOMAIN-SUFFIX,ci-en.jp
+
+# ===== FANZA =====
+- DOMAIN-SUFFIX,fanza.jp
+
+# ===== Melonbooks / Fromagee =====
 - DOMAIN-SUFFIX,melonbooks.co.jp
-- DOMAIN-WILDCARD,*.fanza.*
+- DOMAIN-SUFFIX,fromagee.jp
 
