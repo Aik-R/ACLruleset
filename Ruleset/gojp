@@ -1,0 +1,6 @@
+payload:
+#自加
+- DOMAIN-SUFFIX,ascii2d.net
+- DOMAIN-SUFFIX,melonbooks.co.jp
+- DOMAIN-WILDCARD,*.fanza.*
+
